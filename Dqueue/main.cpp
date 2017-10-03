@@ -195,7 +195,7 @@ public:
     }
     
     //eliminar duplicados;
-    void EliminarDobles(){
+    void EliminarRepetidos(){
         
     }
 };
@@ -210,7 +210,7 @@ int main()
     cout << "menor "<< D.menor() << endl;
     D.inserta(3, 2);
     cout<<D;
-    D.EliminarDobles();
+    D.EliminarRepetidos();
     cout << D;
     
     

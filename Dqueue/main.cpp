@@ -196,21 +196,8 @@ public:
     
     //eliminar duplicados;
     void EliminarDobles(){
-        Nodo *pP = pInicio; //este va a correr desde el principio hasta el final
-        while(pP -> pSig != NULL){
-            Nodo *pQ = pP -> pSig;// este corre desde pP hasta el final
-            while(pQ!= NULL){
-                if(pP -> iInfo == pQ -> iInfo){
-                    pQ -> pAnt -> pSig = pQ -> pSig;
-                    pQ -> pSig -> pAnt = pQ -> pAnt;
-                    delete pQ;
-                }
-            pQ = pQ -> pSig;
-            }
-            pP = pP -> pSig;
-        }
+        
     }
-    
 };
 //////////////////////
 int main()
@@ -221,7 +208,7 @@ int main()
     D.push_front(1);
     cout<<D;
     cout << "menor "<< D.menor() << endl;
-    D.inserta(3, 3);
+    D.inserta(3, 2);
     cout<<D;
     D.EliminarDobles();
     cout << D;

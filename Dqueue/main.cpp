@@ -196,7 +196,32 @@ public:
     
     //eliminar duplicados;
     void EliminarRepetidos(){
-        
+        Nodo *pP = pInicio; // corre desde el principio hasta el penultimo
+        Nodo *pQ; ////corre desde pP hasta el final
+        Nodo *pDelete; //auxiliar para borrar
+        while(pP != NULL){ //se coloca hasta el penultimo nodo
+            
+            pQ = pP -> pSig;
+            while(pQ != NULL){//corre de pP hasta el final
+                if((pQ -> iInfo) == (pP -> iInfo)){//checa si su info es igual
+                    if(pQ -> pSig == NULL){
+                        pDelete = pFinal;
+                        pQ = pQ-> pAnt;
+                        pQ -> pSig = NULL;
+                        pFinal = pQ;
+                        delete pDelete;
+                    }else{
+                        pDelete = pQ;
+                        pQ = pDelete -> pAnt;
+                        pQ -> pSig = pDelete -> pSig;
+                        pDelete -> pSig -> pAnt = pQ;
+                        delete pDelete;
+                    }
+                }
+                pQ = pQ -> pSig;
+            }
+            pP = pP -> pSig;
+        }
     }
 };
 //////////////////////
@@ -209,7 +234,7 @@ int main()
     cout<<D;
     cout << "menor "<< D.menor() << endl;
     D.inserta(3, 2);
-    cout<<D;
+    cout << D;
     D.EliminarRepetidos();
     cout << D;
     
